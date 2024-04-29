@@ -8,7 +8,8 @@ import { authService } from '@/services/auth.service'
 import { apiErrorCatch } from './apiErrorCatch'
 
 const options: CreateAxiosDefaults = {
-	baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+	baseURL: 'http://nikitakazantsev.ru/api',
+	// baseURL: 'http://localhost:8080/api',
 	headers: {
 		'Content-Type': 'application/json',
 	},
@@ -52,6 +53,7 @@ axiosWithAuth.interceptors.response.use(
 				}
 
 				removeTokenFromCookie()
+				await authService.logout()
 			}
 		}
 

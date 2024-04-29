@@ -7,6 +7,8 @@ class DASHBOARD {
 	TIMER = `${this.root}/pomodoro`
 	TIME_BLOCKING = `${this.root}/time-blocking`
 	SETTINGS = `${this.root}/settings`
+
+	ADMIN_USERS = `${this.root}/admin/users`
 }
 
 export const DASHBOARD_PAGES = new DASHBOARD()

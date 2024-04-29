@@ -1,0 +1,38 @@
+.table {
+	@apply w-full;
+
+	.header {
+		@apply grid grid-cols-[1fr_1fr_1fr_.4fr_.4fr];
+	}
+
+	.header,
+	.parentsWrapper .row {
+		@apply rounded border-t border-border text-left w-auto whitespace-nowrap;
+
+		> div {
+			@apply border-r border-border py-2 px-4;
+
+			&:last-child {
+				@apply border-0;
+			}
+		}
+	}
+
+	.parentsWrapper {
+		.row {
+			@apply font-normal font-thin grid grid-cols-[1fr_1fr_1fr_.4fr_.4fr] relative;
+
+			&:hover {
+				@apply bg-[#1c1f1f];
+			}
+
+			.delete {
+				@apply text-red-200 transition-all duration-150;
+
+				&:hover {
+					@apply text-red-300;
+				}
+			}
+		}
+	}
+}

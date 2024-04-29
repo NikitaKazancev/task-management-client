@@ -5,6 +5,7 @@ import {
 	LucideIcon,
 	Settings,
 	Timer,
+	UsersRound,
 } from 'lucide-react'
 
 import { DASHBOARD_PAGES } from '@/constants/pages-url.constants'
@@ -35,6 +36,11 @@ export const MENU: IMenuItem[] = [
 		icon: CalendarRange,
 		link: DASHBOARD_PAGES.TIME_BLOCKING,
 		name: 'Time blocking',
+	},
+	{
+		icon: UsersRound,
+		link: DASHBOARD_PAGES.ADMIN_USERS,
+		name: 'Users',
 	},
 	{
 		icon: Settings,

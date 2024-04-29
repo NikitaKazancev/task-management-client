@@ -1,7 +1,7 @@
 import Checkbox from '@/components/ui/Checkbox'
+import { TransparentField } from '@/components/ui/Fields/TransparentField'
 import { SingleSelect } from '@/components/ui/TaskEdit'
 import { DatePicker } from '@/components/ui/TaskEdit/DatePicker'
-import { TransparentField } from '@/components/ui/fields/TransparentField'
 import type { ITaskResponse, TypeTaskFormState } from '@/types/task.types'
 import cn from 'clsx'
 import { GripVertical, Loader, Trash } from 'lucide-react'

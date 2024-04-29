@@ -1,3 +1,4 @@
+import { Role } from '@/types/user.types'
 import Cookies from 'js-cookie'
 
 export enum TokenTypes {
@@ -12,7 +13,8 @@ export const getAccessToken = () => {
 
 export const saveTokenToCookie = (accessToken: string) => {
 	Cookies.set(TokenTypes.ACCESS_TOKEN, accessToken, {
-		domain: 'localhost',
+		domain: 'nikitakazantsev.ru',
+		// domain: 'localhost',
 		sameSite: 'strict',
 		expires: 1,
 	})
@@ -20,4 +22,13 @@ export const saveTokenToCookie = (accessToken: string) => {
 
 export const removeTokenFromCookie = () => {
 	Cookies.remove(TokenTypes.ACCESS_TOKEN)
+}
+
+export const getRoleFromCookie = () => {
+	const role = Cookies.get('role')
+	return role || Role.USER
+}
+
+export const removeRoleFromCookie = () => {
+	Cookies.remove('role')
 }

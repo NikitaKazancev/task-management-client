@@ -22,6 +22,11 @@ export interface IProfileResponse {
 class UserService {
 	private BASE_URL = '/current-user'
 
+	async findAll() {
+		const response = await axiosWithAuth.get<IUser[]>('/users')
+		return response.data
+	}
+
 	async findProfile() {
 		const response = await axiosWithAuth.get<IProfileResponse>(this.BASE_URL)
 		return response.data
@@ -29,8 +34,11 @@ class UserService {
 
 	async updateProfile(data: TypeUserForm) {
 		const response = await axiosWithAuth.put(this.BASE_URL, data)
+		return response.data
+	}
 
-		console.log(response)
+	async deleteUserById(id: string) {
+		const response = await axiosWithAuth.delete(`/users/${id}`)
 		return response.data
 	}
 }

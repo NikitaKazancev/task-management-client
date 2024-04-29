@@ -1,6 +1,10 @@
 import { axiosClassic } from '@/api/interceptors'
 import { IAuthForm, IAuthResponse } from '@/types/auth.types'
-import { removeTokenFromCookie, saveTokenToCookie } from './auth-token.service'
+import {
+	removeRoleFromCookie,
+	removeTokenFromCookie,
+	saveTokenToCookie,
+} from './auth-token.service'
 
 export const authService = {
 	async main(type: 'login' | 'register', data: IAuthForm) {
@@ -35,7 +39,10 @@ export const authService = {
 	async logout() {
 		const response = await axiosClassic.post<boolean>('/auth/logout')
 
-		if (response.data) removeTokenFromCookie()
+		if (response.data) {
+			removeTokenFromCookie()
+			removeRoleFromCookie()
+		}
 
 		return response
 	},
